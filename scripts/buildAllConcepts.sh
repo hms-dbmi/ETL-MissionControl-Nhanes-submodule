@@ -5,16 +5,16 @@
 # and execute the generate the allConcepts.csv needed to generate javabin files for HPDS
 #
 
-if [! -d "completed" ] then
+if [! -d "completed" ]; then
    mkdir completed
 fi
-if [! -d "processing" ] then
+if [! -d "processing" ]; then
    mkdir processing
 fi
-if [! -d "mappings" ] then
+if [! -d "mappings" ]; then
    mkdir mappings
 fi
-if [! -d "resources" ] then
+if [! -d "resources" ]; then
    mkdir resources
 fi
 
