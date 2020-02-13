@@ -5,21 +5,28 @@
 # and execute the generate the allConcepts.csv needed to generate javabin files for HPDS
 #
 
-mkdir data
-mkdir completed
-mkdir processing
-mkdir mappings
-mkdir resources
+if [! -d "completed" ] then
+   mkdir completed
+fi
+if [! -d "processing" ] then
+   mkdir processing
+fi
+if [! -d "mappings" ] then
+   mkdir mappings
+fi
+if [! -d "resources" ] then
+   mkdir resources
+fi
 
 
-print "Pulling nhanes data and configuration from s3"
+printf "Pulling nhanes data and configuration from s3"
 
 aws s3 cp s3://avillach-73-nhanes-etl/data/ ./data/ --recursive
 aws s3 cp s3://avillach-73-nhanes-etl/mappings/ ./mappings/ --recursive
 aws s3 cp s3://avillach-73-nhanes-etl/resources/ ./resources/ --recursive
 
-print "Generating allConcepts.csv"
+printf "Generating allConcepts.csv"
 
-java -jar GenerateAllConcepts.csv
+java -jar GenerateAllConcepts.jar
 
-print "Finished generating allConcepts.csv"
+printf "Finished generating allConcepts.csv"
