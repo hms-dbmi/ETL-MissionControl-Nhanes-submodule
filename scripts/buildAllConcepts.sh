@@ -27,6 +27,6 @@ aws s3 cp s3://avillach-73-nhanes-etl/resources/ ./resources/ --recursive
 
 printf "Generating allConcepts.csv"
 
-java -jar GenerateAllConcepts.jar
+java -jar GenerateAllConcepts.jar -propertiesfile resources/job.config
 
 printf "Finished generating allConcepts.csv"
